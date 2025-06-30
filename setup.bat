@@ -5,6 +5,8 @@ setlocal enabledelayedexpansion
 set "SOURCE_PS1=SH.ps1"
 set "SOURCE_LNK=SH.lnk"
 set "SOURCE_UPGRADE=update_packages.py"
+set "SOURCE_UP_WIN=update_win.bat"
+set "SOURCE_UP_THONNY=update_thonny.bat"
 set "DEST_PROGFILES=C:\Program Files\%SOURCE_PS1%"
 :: set "DEST_DESKTOP=%USERPROFILE%\Desktop\%SOURCE_LNK%"
 set "DEST_DESKTOP=C:\"
@@ -58,5 +60,18 @@ copy /y "%~dp0%SOURCE_UPGRADE%" "%DEST_DESKTOP%" && (
     echo FAILED: update_packages.py
 )
 
+:: 4. Copy update_win.bat to C:\
+copy /y "%~dp0%SOURCE_UP_WIN%" "%DEST_DESKTOP%" && (
+    echo SUCCESS: Copied to C:\
+) || (
+    echo FAILED: update_win.bat
+)
+
+:: 5. Copy update_thonny.bat to C:\
+copy /y "%~dp0%SOURCE_UP_THONNY%" "%DEST_DESKTOP%" && (
+    echo SUCCESS: Copied to C:\
+) || (
+    echo FAILED: update_thonny.bat
+)
 
 pause

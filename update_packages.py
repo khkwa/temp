@@ -16,3 +16,8 @@ packages = [
 
 for package in packages:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", package])
+
+from openpyxl import load_workbook
+import matplotlib.pyplot as plt
+plt.plot([1,2,3], [4,5,6])
+plt.show()
